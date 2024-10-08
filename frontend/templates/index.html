@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Index page{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Request al backend</h2>
+        <h3>estado: {{ state }}</h3>
+        {% if state == "esperando" %}
+            <form method="POST" action="{{ url_for("index") }}">
+                <button type="submit">Iniciar request</button>
+            </form>
+        {% else %}
+            <form method="POST" action="{{ url_for("stop") }}">
+                <button type="submit">Detener request</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
